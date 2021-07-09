@@ -166,7 +166,7 @@ def Overview(asset):
         'modeBarButtonsToAdd': ['drawline']
     }
 
-    st.plotly_chart(fig, use_container_width=True, config=config)
+    st.plotly_chart(fig_candle, use_container_width=True, config=config)
 
     left, right = st.beta_columns([1, 1])
     with left:
