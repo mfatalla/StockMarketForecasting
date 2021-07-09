@@ -3,7 +3,7 @@ requests == 2.25.1
 bs4 == 0.0.1
 beautifulsoup4 == 4.9.3
 lxml == 4.6.3
-yfinance == 0.1.59
+yfinance == 0.1.62
 streamlit == 0.84.0
 numpy
 matplotlib
