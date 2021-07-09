@@ -8,7 +8,7 @@ streamlit == 0.84.0
 numpy
 matplotlib
 yahooquery == 2.2.15
-plotly == 4.14.3
+plotly == 5.1.0
 statsmodels == 0.12.2
 pmdarima == 1.8.2
 scikit-learn == 0.24.2
