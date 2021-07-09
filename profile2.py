@@ -36,6 +36,26 @@ def Profile(ticker_asset):
         'Five year Avg Dividend Yield (%)': info['fiveYearAvgDividendYield'],
         'Payout Ratio': info['payoutRatio']
     }
+    st.subheader('General Stock Info')
+    st.markdown('** Market **: ' + info['market'])
+    st.markdown('** Exchange **: ' + info['exchange'])
+    st.markdown('** Quote Type **: ' + info['quoteType'])
+
+    start = dt.datetime.today() - dt.timedelta(2 * 365)
+    end = dt.datetime.today()
+    df = yf.download(ticker_asset, start, end)
+    df = df.reset_index()
+    fig = go.Figure(
+        data=go.Scatter(x=df['Date'], y=df['Adj Close'])
+    )
+    fig.update_layout(
+        title={
+            'text': "Stock Prices Over Past Two Years",
+            'y': 0.9,
+            'x': 0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'})
+    st.plotly_chart(fig, use_container_width=True)
 
     fundDF = pd.DataFrame.from_dict(fundInfo, orient='index')
     fundDF = fundDF.rename(columns={0: 'Value'})
