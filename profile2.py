@@ -57,9 +57,6 @@ def Profile(ticker_asset):
 
     }
 
-    marketDF = pd.DataFrame(data=marketInfo, index=[0])
-    st.write(marketDF)
-
     st.subheader('General Stock Info')
     st.markdown('** Market **: ' + info['market'])
     st.markdown('** Exchange **: ' + info['exchange'])
@@ -81,3 +78,5 @@ def Profile(ticker_asset):
             'yanchor': 'top'})
     st.plotly_chart(fig, use_container_width=True)
 
+    marketDF = pd.DataFrame(data=marketInfo, index=[0])
+    st.table(marketDF)
