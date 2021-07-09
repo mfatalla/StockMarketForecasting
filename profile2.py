@@ -78,4 +78,4 @@ def Profile(ticker_asset):
     }
 
     marketDF = pd.DataFrame(data=marketInfo, index=[0])
-    st.table(marketDF)
+    st.write(marketDF)
