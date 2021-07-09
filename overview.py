@@ -99,7 +99,7 @@ def Overview(asset):
         else:
             vol_ax[19] += volumes[i]
 
-    fig = make_subplots(
+    fig_candle = make_subplots(
         rows=1, cols=2,
         column_widths=[0.2, 0.8],
         specs=[[{}, {}]],
@@ -107,7 +107,7 @@ def Overview(asset):
 
     )
 
-    fig.add_trace(
+    fig_candle.add_trace(
         go.Bar(
             x=vol_ax,
             y=prices_ax,
@@ -121,7 +121,7 @@ def Overview(asset):
 
     dateStr = history_data.index.strftime("%d-%m-%Y %H:%M:%S")
 
-    fig.add_trace(
+    fig_candle.add_trace(
         go.Candlestick(x=dateStr,
                        open=history_data['Open'],
                        high=history_data['High'],
@@ -134,7 +134,7 @@ def Overview(asset):
         row=1, col=2
     )
 
-    fig.update_layout(
+    fig_candle.update_layout(
         title_text='Market Profile Chart (US S&P 500)',  # title of plot
         bargap=0.01,  # gap between bars of adjacent location coordinates,
         showlegend=False,
@@ -154,9 +154,13 @@ def Overview(asset):
 
     )
 
-    fig.update_yaxes(nticks=20)
-    fig.update_yaxes(side="right")
-    fig.update_layout(height=800)
+
+    fig_candle.update_yaxes(nticks=10)
+    fig_candle.update_xaxes(nticks=10)
+    fig_candle.update_yaxes(side="right")
+    fig_candle.update_layout(height=800)
+    fig_candle.update_yaxes(gridcolor='#19D3F3')
+    fig_candle.update_xaxes(gridcolor='#19D3F3')
 
     config = {
         'modeBarButtonsToAdd': ['drawline']
