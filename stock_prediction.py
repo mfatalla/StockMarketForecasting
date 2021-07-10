@@ -34,7 +34,7 @@ def stock_predict(tickerinput):
     with periodT:
         v_T = ['2y', '5y']
         history_args["period"] = st.selectbox(
-            "Select Period", options=v_T, index=2
+            "Select Period", options=v_T, index=0
         )
         periodT_2 = history_args["period"]
 
