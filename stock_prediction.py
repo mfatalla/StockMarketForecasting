@@ -42,7 +42,7 @@ def stock_predict(tickerinput):
             v_I = ['1h', '1d']
 
         if periodT_2 == '5y':
-            v_I = ['1d', '1wk']
+            v_I = ['1d']
 
     with intervalsT:
         history_args["interval"] = st.selectbox(
