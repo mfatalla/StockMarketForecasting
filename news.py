@@ -34,7 +34,7 @@ def News(asset):
 
     trend_today = st.beta_expander("Trend Today", expanded=True)
     with trend_today:
-        col1, col2, col3, col4, col5, col6, col7 = st.beta_columns([1,3,1])
+        col1, col2, col3 = st.beta_columns([1,3,1])
         with col1:
             st.write("")
         with col2:
