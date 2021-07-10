@@ -269,7 +269,7 @@ def stock_predict(tickerinput):
         st.subheader("Result Performance")
         st.table(requirements)
 
-    submitted = st.form_submit_button(label='Refresh')
-    if submitted:
-        stock_predict(tickerinput)
+        submitted = st.form_submit_button(label='Refresh')
+        if submitted:
+            stock_predict(tickerinput)
 
