@@ -37,11 +37,6 @@ def stock_predict(tickerinput):
             "Select Period", options=v_T, index=2
         )
         periodT_2 = history_args["period"]
-        if periodT_2 == '6mo':
-            v_I = ['1h', '1d']
-
-        if periodT_2 == '1y':
-            v_I = ['1h', '1d', '1wk']
 
         if periodT_2 == '2y':
             v_I = ['1h', '1d']
@@ -58,32 +53,15 @@ def stock_predict(tickerinput):
     intervalT = history_args["interval"]
     periodT = history_args["period"]
 
-    if periodT == '6mo' and intervalT =='1h':
-        implies_value = 87
-    if periodT == '6mo' and intervalT =='1d':
-        implies_value = 13
-    if periodT == '1y' and intervalT =='1h':
-        implies_value = 176
-    if periodT == '1y' and intervalT =='1d':
-        implies_value = 26
-    if periodT == '1y' and intervalT =='1wk':
-        implies_value = 6
+
     if periodT == '2y' and intervalT =='1h':
         implies_value = 353
     if periodT == '2y' and intervalT =='1d':
         implies_value = 51
-    if periodT == '2y' and intervalT =='1wk':
-        implies_value = 11
-    if periodT == '2y' and intervalT =='1mo':
-        implies_value = 3
     if periodT == '5y' and intervalT =='1d':
         implies_value = 126
     if periodT == '5y' and intervalT =='1wk':
         implies_value = 27
-    if periodT == '5y' and intervalT =='1mo':
-        implies_value = 7
-    if periodT == '5y' and intervalT =='3mo':
-        implies_value = 3
 
     ticker_input_2 = yf.Ticker(tickerinput)
     datatest = ticker_input_2.history(period=periodT, interval=intervalT)
